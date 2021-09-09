@@ -1,0 +1,37 @@
+#!/bin/bash
+# Cheatsheet link -- https://devhints.io/bash
+#
+# This is a - FastComet Helper Websites - script, designed to ease the deployment/troubleshooting of websites.
+
+help="This is a script that's designed to assist with website deployment/troubleshooting. This is the help menu for the flags:
+
+-s = searches the provided file for any matches
+-h = to display this help message
+"
+
+case $1 in
+
+
+  -s)
+    if [[ -f $2 ]]
+    then
+
+       printf "Input domain name below:\n"
+       read domain
+       grep -oP ".{0,8}$domain.{0,15}" $2
+#SORT UNIQUE
+
+    else
+
+       printf "File doesn't exist, please try again.\n"
+
+    fi
+    ;;
+
+
+  -h | *)
+    printf "$help"
+    ;;
+
+
+esac
